@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../../jasmine/jasmine.css">
+    <script src="../../jasmine/jasmine.js"></script>
+    <script src="../../jasmine/jasmine-html.js"></script>
+    <script src="../../jasmine/boot.js"></script>
+</head>
+<body>
+<div>
+    <p>jquery源码测试</p>
+</div>
+<script src="../jquery-1.11.2.js"></script>
+<script>
+    describe('jquery function test', function () {
+        it('test isFunction', function () {
+            expect(true).toEqual(
+                    $.isFunction(function () {
+                        alert('x');
+                    }));
+
+            var toString = {}.toString,
+                    index = 1,
+                    indexObj = new String(1);
+
+            expect('[object Number]').toEqual(toString.call(Object(1)));
+
+            expect('object').toEqual(typeof indexObj);
+
+            expect('string').toEqual($.type(new String(1)));
+
+            expect(true).toEqual($.isWindow(window));
+
+            expect(false).toEqual($.isWindow(document));
+        });
+    });
+</script>
+</body>
+</html>
+
